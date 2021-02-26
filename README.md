@@ -192,3 +192,11 @@ Get one historical event : GET /history/:id
 
 ## Cool CSS Resources
 - https://css-tricks.com/animating-border/
+
+## Example of Map array
+```js
+const procedureList = procedures.map((procedure, index)=> {
+        return <li key={index}><Link to={`/procedures/${procedure}`}>{procedure}</Link></li>
+    })
+
+```
