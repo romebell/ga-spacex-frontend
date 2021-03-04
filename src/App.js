@@ -27,23 +27,24 @@ vehicles: 3
 }
 */
 
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 function App() {
   // state
   const [company, setCompany] = useState({});
 
   useEffect(() => {
     const fetchCompany = async () => {
-      const response = await axios.get('https://api.spacexdata.com/v4/company');
+      const response = await axios.get(REACT_APP_SERVER_URL); // our API endpoint
       const data = response.data;
+      // name, author, greeting
       // destructuring
-      const { ceo, employees, name, valuation, vehicles } = data;
+      console.log(data);
+      const { name, author, greeting } = data;
       setCompany({
-        student: 'Rome Bell',
-        ceo: ceo,
-        employees: employees,
-        name: name,
-        valuation,
-        vehicles
+        name,
+        author,
+        greeting
       });
 
     }

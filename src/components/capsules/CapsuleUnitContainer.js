@@ -21,12 +21,14 @@ import Capsule from './Capsule'; // capsule component is in the same folder
 ]
 */
 
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 const CapsuleUnitContainer = () => {
     const [capsules, setCapsules] = useState([])
 
     useEffect(() => {
         const fetchCapsules = async () => {
-          const response = await axios.get('https://api.spacexdata.com/v4/capsules');
+          const response = await axios.get(`${REACT_APP_SERVER_URL}/capsules`);
           const data = response.data; // array
           // destructuring
         //   console.log(water_landings) // data inside object
